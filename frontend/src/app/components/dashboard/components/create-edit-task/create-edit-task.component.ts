@@ -28,6 +28,8 @@ export class CreateEditTaskComponent {
         'name': ['', Validators.required],
         'description': ['', Validators.required]
       });
+      
+      //this.loadEditTask();
     }
 
     loadTask(){
@@ -67,5 +69,38 @@ export class CreateEditTaskComponent {
         }
       });
     }
-  }  
+  } 
+
+  /*loadEditTask(){
+    const localTask:any = JSON.parse(<string>localStorage.getItem('task'));
+    this.CreateEditTaskFormGroup.patchValue({
+      id: localTask.id,
+      name: localTask.name,
+      description: localTask.description
+    })
+  }
+
+  editTask(){
+    if (this.CreateEditTaskFormGroup.invalid) {
+      alert('Debes diligenciar todos los campos');
+    } else {
+      const updateData = {
+        id: this.CreateEditTaskFormGroup.value.id,
+        name: this.CreateEditTaskFormGroup.value.name,
+        description: this.CreateEditTaskFormGroup.value.description
+      }
+
+    this.taskService.updateTask(updateData).subscribe({
+    next: (response) => {
+      console.log(response);
+      this.router.navigate(['/dashboard']);
+      this.loadTask();
+    },
+    error: (error) => {
+      console.log(error);
+      alert('No se pudo actualizar la tarea');
+    }
+  });
+}
+}*/
 }

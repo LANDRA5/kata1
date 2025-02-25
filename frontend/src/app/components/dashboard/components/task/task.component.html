@@ -23,7 +23,7 @@
                   <th scope="row">{{task.id}}</th> <!-- id -->
                   <td>{{task.name}}</td><!-- name  -->
                   <td>{{task.description}}</td><!-- desc -->
-                  <td><button type="button" class="btn btn-success">Edit</button>
+                  <td><button type="button" class="btn btn-success" (click)="saveEditTask(task)">Edit</button>
                       <button type="button" class="btn btn-danger" (click)="deleteTask(task)">Delete</button></td>
                 </tr>
               }

@@ -20,7 +20,8 @@ export class TaskComponent {
   //create: boolean;
   
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private router: Router
    ){
       this.loadTask();
       //this.create = false;
@@ -43,6 +44,12 @@ export class TaskComponent {
         alert('No se pudo iniciar sesión');
       }
     });
+  }
+
+  saveEditTask(task: any){
+    console.log('editar', task);
+    localStorage.setItem('task', JSON.stringify(task));
+    this.router.navigate(['/edit-task']);
   }
 
   deleteTask(task: any){
