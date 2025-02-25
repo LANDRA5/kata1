@@ -54,7 +54,7 @@ export class TaskController {
     }
 
     public async deleteTask(req: any, res: any): Promise<any> {
-        const id: any = req.query.id;
+        const id: any = req.params.id;
         const isDeleteTask = await this.taskService.deleteTask(id);
         if (isDeleteTask) {
             return res.status(200).json({

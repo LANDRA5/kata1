@@ -9,11 +9,13 @@ import {HttpClientModule} from "@angular/common/http";
   selector: 'app-create-edit-task',
   standalone: true,
   imports: [RouterLink, FormsModule, ReactiveFormsModule, HttpClientModule],
+  providers: [TaskService],
   templateUrl: './create-edit-task.component.html',
   styleUrl: './create-edit-task.component.css'
 })
 export class CreateEditTaskComponent {
 
+  listTask: any;
   CreateEditTaskFormGroup: FormGroup;
 
   constructor(
@@ -28,7 +30,19 @@ export class CreateEditTaskComponent {
       });
     }
 
-  
+    loadTask(){
+      this.taskService.getAllTask().subscribe({
+        next: (response) => {
+          console.log(`consulta correcta:`);
+          console.log(response);
+          this.listTask = response.data;
+        },
+        error: (error) => {
+          console.log(error);
+          alert('No se pudo iniciar sesión');
+        }
+      });
+    }
 
   addTask(){
 
@@ -45,6 +59,7 @@ export class CreateEditTaskComponent {
         next: (response) => {
           console.log(response);
           this.router.navigate(['/dashboard']);
+          this.loadTask();
         },
         error: (error) => {
           console.log(error);
@@ -52,20 +67,5 @@ export class CreateEditTaskComponent {
         }
       });
     }
-  }
-
-  /*deleteTask(){
-
-    this.taskService.deleteTask().subscribe({
-        next: (response) => {
-          console.log(response);
-          this.router.navigate(['/dashboard']);
-        },
-        error: (error) => {
-          console.log(error);
-          alert('No se pudo eliminar la tarea');
-        }
-      });
-    }*/
-  
+  }  
 }

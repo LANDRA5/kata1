@@ -40,7 +40,7 @@ export class TaskService {
       const finalUrl = this.getUrl('delete');
       const url = `${finalUrl}/${task.id}`;
       const options = this.addHeaders();
-      return this.http.delete(`${url}`);
+      return this.http.delete(`${url}`, options);
     }
 
     private getUrl(method: string): string {
