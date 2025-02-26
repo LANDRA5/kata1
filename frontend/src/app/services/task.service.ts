@@ -59,12 +59,16 @@ export class TaskService {
     }
 
     private addHeaders(): any{
-      const token = localStorage.getItem('token');
+      const token = this.getStorage('token');
       return{
         headers:{
           'Content-Type': 'application/json',
           'Authorization': token
         }
       }
+    }
+
+    getStorage(key: string): any {
+      return typeof window !== "undefined" ? window.localStorage.getItem(key) : null;
     }
 }

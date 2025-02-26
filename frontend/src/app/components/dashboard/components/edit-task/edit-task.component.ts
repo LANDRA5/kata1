@@ -17,6 +17,7 @@ export class EditTaskComponent {
 
   listTask: any;
   EditTaskFormGroup: FormGroup;
+  idTask: string | undefined;
 
   constructor(
       private router: Router,
@@ -30,32 +31,19 @@ export class EditTaskComponent {
       });
 
       this.loadEditTask();
-    
-    }
 
-    loadTask(){
-      this.taskService.getAllTask().subscribe({
-        next: (response) => {
-          console.log(`consulta correcta:`);
-          console.log(response);
-          this.listTask = response.data;
-        },
-        error: (error) => {
-          console.log(error);
-          alert('No se pudo iniciar sesión');
-        }
-      });
     }
 
     loadEditTask(){
       const localTask:any = JSON.parse(<string>localStorage.getItem('task'));
+      this.idTask = localTask.id;
       this.EditTaskFormGroup.patchValue({
         id: localTask.id,
         name: localTask.name,
         description: localTask.description
       })
     }
-  
+
     editTask(){
       if (this.EditTaskFormGroup.invalid) {
         alert('Debes diligenciar todos los campos');
@@ -65,12 +53,12 @@ export class EditTaskComponent {
           name: this.EditTaskFormGroup.value.name,
           description: this.EditTaskFormGroup.value.description
         }
-  
+
       this.taskService.updateTask(updateData).subscribe({
       next: (response) => {
         console.log(response);
+        localStorage.removeItem('task');
         this.router.navigate(['/dashboard']);
-        this.loadTask();
       },
       error: (error) => {
         console.log(error);
@@ -79,5 +67,5 @@ export class EditTaskComponent {
     });
   }
   }
-  }  
+  }
 

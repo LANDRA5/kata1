@@ -18,7 +18,7 @@ export class TaskComponent {
 
   listTask: any;
   //create: boolean;
-  
+
   constructor(
     private taskService: TaskService,
     private router: Router
@@ -26,8 +26,8 @@ export class TaskComponent {
       this.loadTask();
       //this.create = false;
     }
-  
-   
+
+
   /*onForm(){
     this.create = !this.create
   }*/
@@ -49,7 +49,7 @@ export class TaskComponent {
   saveEditTask(task: any){
     console.log('editar', task);
     localStorage.setItem('task', JSON.stringify(task));
-    this.router.navigate(['/edit-task']);
+    this.router.navigate(['/edit']);
   }
 
   deleteTask(task: any){

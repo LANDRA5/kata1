@@ -18,6 +18,7 @@ export class CreateEditTaskComponent {
   listTask: any;
   CreateEditTaskFormGroup: FormGroup;
 
+
   constructor(
       private router: Router,
       private fb: FormBuilder,
@@ -28,7 +29,7 @@ export class CreateEditTaskComponent {
         'name': ['', Validators.required],
         'description': ['', Validators.required]
       });
-      
+
       //this.loadEditTask();
     }
 
@@ -69,7 +70,7 @@ export class CreateEditTaskComponent {
         }
       });
     }
-  } 
+  }
 
   /*loadEditTask(){
     const localTask:any = JSON.parse(<string>localStorage.getItem('task'));
