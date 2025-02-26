@@ -1,16 +1,21 @@
-
 <section class="background-radial-gradient overflow-hidden">
-    <div class="container px-4 py-5 px-md-6 text-center text-lg-start my-5">
-      <div class="row gx-lg-65 align-items-center mb-65">
-        <div class="col-lg-70 mb-60 mb-lg-20 position-relative">
-          <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-          <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card shadow-2-strong" style="border-radius: 1rem;">
-                  <div class="card-body p-5 text-center">
+  <div class="container px-4 py-5 px-md-6 text-center text-lg-start my-5">
+    <div class="row gx-lg-65 align-items-center mb-65">
+      <div class="col-lg-70 mb-60 mb-lg-20 position-relative">
+        <div
+          id="radius-shape-1"
+          class="position-absolute rounded-circle shadow-5-strong"
+        ></div>
+        <div
+          id="radius-shape-2"
+          class="position-absolute shadow-5-strong"
+        ></div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem">
+              <div class="card-body p-5 text-center">
 
-                    <h2 class="mb-5">Editar Tarea</h2><hr class="my-15">
+                    <h1 class="mb-5">Editar Tarea</h1><hr class="my-15">
 
                     <form [formGroup]="EditTaskFormGroup" (ngSubmit)="editTask()">
                       <div data-mdb-input-init class="form-outline mb-4">
@@ -24,11 +29,18 @@
                         <p class="fw-bold"><label class="form-label" for="typePasswordX-2">Descripción</label></p>
                         <input type="text" formControlName="description" id="typePasswordX-2" class="form-control form-control-lg" />
                       </div>
-                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg btn-block" type="submit">Guardar Cambios</button>
 
-                      <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block">
-                        <a routerLink="/dashboard" class="link-light">Atras</a>
-                      </button>
+                      <div class="d-flex justify-content-center">
+                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-success btn-lg mx-2" type="submit">
+                          <i class="fas fa-plus-circle"></i> Guardar Cambios
+                        </button>
+    
+                        <button data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg mx-2">
+                          <a routerLink="/dashboard" class="link-light">
+                            <i class="fas fa-arrow-left"></i> Atrás
+                          </a>
+                        </button>
+                      </div>
                       <hr class="my-4">
                     </form>
 

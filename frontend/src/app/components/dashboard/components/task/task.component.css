@@ -1,0 +1,35 @@
+.container {
+    max-width: 900px;
+}
+
+.mat-card {
+    border-radius: 10px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.btn {
+    margin: 2px;
+}
+
+.shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn i {
+    margin-right: 5px;
+}
+
+.btn-success i {
+    color: #ffffff;
+}
+
+.btn-danger i {
+    color: #ffffff;
+}

@@ -1,0 +1,20 @@
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+mat-toolbar {
+  padding: 0 1rem;
+}
+
+mat-icon {
+  font-size: 24px;
+  color: white;
+}
